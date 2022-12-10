@@ -1,0 +1,18 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/Build.ps1 ${workspaceFolder}",
+            "problemMatcher": [],
+            "options": {
+                "shell": { "executable": "pwsh" }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

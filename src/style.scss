@@ -1,0 +1,120 @@
+$foreground-color: #fff;
+$control-hover-shadow: 1px 1px 5px black;
+$control-margin: 10px;
+$control-opacity: 0.6;
+$control-transition-duration: 2s;
+$thumbnail-count: 5;
+$thumbnail-margin: $control-margin;
+
+.hiding, .hidden {
+    opacity: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.gallery {
+    .galleryStage {
+        position: relative;
+        transition: opacity $control-transition-duration;
+
+        .galleryCloseButton {
+            right: $control-margin;
+            top: $control-margin;
+        }
+
+        
+        .galleryCloseButton, .galleryImageTitle, .galleryLeftButton, .galleryRightButton {
+            color: $foreground-color;
+            border: 0;
+            background: none;
+            position: absolute;
+        }
+        
+        .galleryCloseButton, .galleryImageTitle, .galleryLeftButton, .galleryRightButton {
+            opacity: $control-opacity;
+            transition: opacity $control-transition-duration;
+            
+            &:hover {
+                &:not(&:disabled) {
+                    opacity: 1;
+                    text-shadow: $control-hover-shadow;
+                }
+            }
+        }
+        
+        .galleryCloseButton, .galleryLeftButton, .galleryRightButton {
+            font-size: 35px;
+            cursor: pointer;
+
+            &:disabled {
+                cursor: not-allowed;
+            }
+        }
+        
+        .galleryImageTitle {
+            bottom: $control-margin;
+            font-size: 20px;
+            padding-right: $control-margin;
+            padding-top: $control-margin;
+        }
+
+        .galleryImageTitle, .galleryLeftButton {
+            left: $control-margin;
+        }
+
+        .galleryLeftButton, .galleryRightButton {
+            top: 50%;
+        }
+
+        .galleryPresenter, .galleryPresenterTransition {
+            width: 100%;
+        }
+        
+        .galleryPresenterTransition {
+            position: absolute;
+            transition: opacity $control-transition-duration;
+            z-index: 1;
+        }
+
+        .galleryRightButton {
+            right: $control-margin;
+        }
+    }
+
+    .galleryThumbnails {
+        display: flex;
+        margin-bottom: $thumbnail-margin;
+        overflow-x: auto;
+        overflow-y: auto;
+        white-space: nowrap;
+
+        &:after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+
+        img {
+            cursor: pointer;
+            opacity: $control-opacity;
+            margin-right: $thumbnail-margin;
+            transition: opacity $control-transition-duration;
+            width: calc((100% / ($thumbnail-count - 1)) - $thumbnail-margin);
+            min-width: 200px;
+            
+            &.galleryImageSelected {
+                opacity: 1;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+    }
+}
