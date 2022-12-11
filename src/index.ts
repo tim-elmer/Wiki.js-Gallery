@@ -138,7 +138,7 @@ class Gallery {
         this.#leftButton.addEventListener("click", (_) => this.ShiftLeft());
         this.#rightButton.addEventListener("click", (_) => this.ShiftRight());
 
-        this.#closable = closable;
+        this.Closable = closable;
         this.SelectedImage = 0;        
         this.Closed = closed;
 
@@ -327,8 +327,16 @@ class Gallery {
     }
 }
 
-new Gallery("galleryMain", true, true)
+function BootGallery()
+{
+    document.querySelectorAll(".gallery").forEach(g => {
+        var gallery = g as HTMLDivElement;
+        new Gallery(gallery.id, JSON.parse((gallery.dataset.closable as string)?.toLowerCase() ?? "false"), JSON.parse((gallery.dataset.closed as string)?.toLowerCase() ?? "false"));
+    });
+}
+
+// new Gallery("galleryMain", true, true)
 // * Use this format for WikiJS
 // window.boot.register("page-ready", () => {
-//     new Gallery("mainGallery");
+//     BootGallery();
 // });
