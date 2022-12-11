@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./style.css">
-        <meta name="viewport" content="width=device-width">
-    </head>
-    <body>
-        <div class="gallery" id="main">
-            <div class="galleryThumbnails" data-images='{
-              "Images": [
+
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+    <div class="gallery" id="main" data-images='{
+            "Images": [
                 {
-                    "Src": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/Peter%20(1).png",
-                    "Alt": "Peter 1"
+                    "ImageSource": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/Peter%20(1).png",
+                    "Title": "Peter 1",
+                    "ThumbnailSource": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/thumb/Peter%20(1).jpg"
                 },
                 {
-                    "Src": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/Peter%20(2).png",
-                    "Alt": "Peter 2"
+                    "ImageSource": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/Peter%20(2).png",
+                    "Title": "Peter 2",
+                    "ThumbnailSource": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/thumb/Peter%20(2).jpg"
                 },
                 {
-                    "Src": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/Peter%20(3).png",
-                    "Alt": "Peter 3"
+                    "ImageSource": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/Peter%20(3).png",
+                    "Title": "Peter 3",
+                    "ThumbnailSource": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/thumb/Peter%20(3).jpg"
                 },
                 {
-                    "Src": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/Peter%20(4).png",
-                    "Alt": "Peter 4"
+                    "ImageSource": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/Peter%20(4).png",
+                    "Title": "Peter 4",
+                    "ThumbnailSource": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/thumb/Peter%20(4).jpg"
                 },
                 {
-                    "Src": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/Peter%20(5).png",
-                    "Alt": "Peter 5"
+                    "ImageSource": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/Peter%20(5).png",
+                    "Title": "Peter 5",
+                    "ThumbnailSource": "https://cdn.timelmer.com/file/resource/dnd/kom/peter/thumb/Peter%20(5).jpg"
                 }
-              ]  
-            }'></div>
-            <div class="galleryStage">
-                <button class="galleryLeftButton">&lt;</button>
-                <button class="galleryRightButton">&gt;</button>
-              <button class="galleryCloseButton">&times;</button>
-              <img class="galleryPresenterTransition hidden">
-              <img class="galleryPresenter">
-              <figcaption class="galleryImageTitle"></figcaption>
+            ]  
+          }'>
+        <div class="galleryThumbnailSelector"></div>
+        <div class="galleryStage galleryDisplayNone">
+            <div class="galleryButtonOverlay">
+                <button type="button" class="galleryCloseButton">&times;</button>
+                <button type="button" class="galleryLeftButton">&lt;</button>
+                <button type="button" class="galleryRightButton">&gt;</button>
+                <figcaption class="galleryImageTitle"></figcaption>
             </div>
-          </div>
-          <script src="./index.js"></script>
-    </body>
+            <img class="galleryPresenter">
+        </div>
+    </div>
+    <p>Content Underneath</p>
+    <script src="./index.js"></script>
+</body>
 </html>

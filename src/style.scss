@@ -2,38 +2,36 @@ $foreground-color: #fff;
 $control-hover-shadow: 1px 1px 5px black;
 $control-margin: 10px;
 $control-opacity: 0.6;
-$control-transition-duration: 2s;
+$control-transition-duration: .125s;
 $thumbnail-count: 5;
 $thumbnail-margin: $control-margin;
 
-.hiding, .hidden {
-    opacity: 0;
+.galleryDisplayNone {
+    display: none !important;
 }
 
-.hidden {
-    display: none;
+.galleryOpaque {
+    opacity: 1 !important;
+}
+
+.galleryTransparent, .galleryDisplayNone {
+    opacity: 0 !important;
 }
 
 .gallery {
     .galleryStage {
+        margin-top: $control-margin;
+        height: auto;
+        overflow: hidden;
         position: relative;
-        transition: opacity $control-transition-duration;
-
-        .galleryCloseButton {
-            right: $control-margin;
-            top: $control-margin;
-        }
-
+        transition: height $control-transition-duration;
         
         .galleryCloseButton, .galleryImageTitle, .galleryLeftButton, .galleryRightButton {
             color: $foreground-color;
             border: 0;
             background: none;
-            position: absolute;
-        }
-        
-        .galleryCloseButton, .galleryImageTitle, .galleryLeftButton, .galleryRightButton {
             opacity: $control-opacity;
+            position: absolute;
             transition: opacity $control-transition-duration;
             
             &:hover {
@@ -43,7 +41,7 @@ $thumbnail-margin: $control-margin;
                 }
             }
         }
-        
+
         .galleryCloseButton, .galleryLeftButton, .galleryRightButton {
             font-size: 35px;
             cursor: pointer;
@@ -51,6 +49,32 @@ $thumbnail-margin: $control-margin;
             &:disabled {
                 cursor: not-allowed;
             }
+        }
+
+        .galleryCloseButton, .galleryRightButton {
+            right: $control-margin;
+            float: right;
+        }
+
+        .galleryImageTitle, .galleryLeftButton {
+            left: $control-margin;
+            float: left;
+        }
+
+        .galleryLeftButton, .galleryRightButton {
+            top: 50%;
+        }
+
+        .galleryPresenter, .galleryTransitionPresenter {
+            width: 100%;
+        }
+        
+        .galleryButtonOverlay {
+            transition: opacity $control-transition-duration;
+        }
+
+        .galleryCloseButton {
+            top: $control-margin;
         }
         
         .galleryImageTitle {
@@ -60,32 +84,17 @@ $thumbnail-margin: $control-margin;
             padding-top: $control-margin;
         }
 
-        .galleryImageTitle, .galleryLeftButton {
-            left: $control-margin;
-        }
-
-        .galleryLeftButton, .galleryRightButton {
-            top: 50%;
-        }
-
-        .galleryPresenter, .galleryPresenterTransition {
-            width: 100%;
-        }
-        
-        .galleryPresenterTransition {
+        .galleryTransitionPresenter {
             position: absolute;
             transition: opacity $control-transition-duration;
             z-index: 1;
-        }
-
-        .galleryRightButton {
-            right: $control-margin;
+            // &.galleryTransitioning {
+            // }
         }
     }
 
-    .galleryThumbnails {
+    .galleryThumbnailSelector {
         display: flex;
-        margin-bottom: $thumbnail-margin;
         overflow-x: auto;
         overflow-y: auto;
         white-space: nowrap;
@@ -100,7 +109,7 @@ $thumbnail-margin: $control-margin;
             cursor: pointer;
             opacity: $control-opacity;
             margin-right: $thumbnail-margin;
-            transition: opacity $control-transition-duration;
+            transition: opacity $control-transition-duration linear;
             width: calc((100% / ($thumbnail-count - 1)) - $thumbnail-margin);
             min-width: 200px;
             
