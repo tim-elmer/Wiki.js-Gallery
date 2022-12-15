@@ -335,8 +335,6 @@ function BootGallery()
     });
 }
 
-// new Gallery("galleryMain", true, true)
-// * Use this format for WikiJS
 // window.boot.register("page-ready", () => {
 //     BootGallery();
 // });
