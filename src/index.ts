@@ -335,6 +335,6 @@ function BootGallery()
     });
 }
 
-// window.boot.register("page-ready", () => {
-//     BootGallery();
-// });
+window.boot.register("page-ready", () => {
+    BootGallery();
+});

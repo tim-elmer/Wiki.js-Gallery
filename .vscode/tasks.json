@@ -4,11 +4,8 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "${workspaceFolder}/.vscode/Build.ps1 ${workspaceFolder}",
+            "command": "gulp Build",
             "problemMatcher": [],
-            "options": {
-                "shell": { "executable": "pwsh" }
-            },
             "group": {
                 "kind": "build",
                 "isDefault": true
