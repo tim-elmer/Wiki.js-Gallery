@@ -22,7 +22,7 @@ class GalleryImage {
 
     constructor(o: any) {
         this.#imageSource = o.ImageSource;
-        this.#thumbnailSource = o.ThumbnailSource ?? "";
+        this.#thumbnailSource = o.ThumbnailSource ?? null;
         this.#title = o.Title ?? "";
     }
 
@@ -335,6 +335,6 @@ function BootGallery()
     });
 }
 
-// window.boot.register("page-ready", () => {
-//     BootGallery();
-// });
+window.boot.register("page-ready", () => {
+    BootGallery();
+});
