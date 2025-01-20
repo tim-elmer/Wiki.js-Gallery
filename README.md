@@ -4,7 +4,7 @@ A stupid-simple image gallery designed for WikiJS.
 
 ## Use
 
-See `/src/index.html` for an example.
+See `/src/example.md` for an example.
 
 ### Helper
 
